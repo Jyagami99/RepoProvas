@@ -1,8 +1,13 @@
 import { Router } from "express";
-import ensureAuthenticatedMiddleware from "../middlewares/ensureAuthenticatedMiddleware";
+import categoryController from "../controllers/categoryController";
+import ensureAuthenticated from "../middlewares/ensureAuthenticatedMiddleware";
 
 const router = Router();
 
-router.get("/categories", ensureAuthenticatedMiddleware);
+router.get(
+  "/categories",
+  ensureAuthenticated,
+  categoryController.findMany
+);
 
 export default router;

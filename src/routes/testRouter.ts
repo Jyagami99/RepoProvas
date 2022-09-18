@@ -1,11 +1,12 @@
 import { Router } from "express";
-import ensureAuthenticatedMiddleware from "../middlewares/ensureAuthenticatedMiddleware";
+import testController from "../controllers/testController";
+import ensureAuthenticated from "../middlewares/ensureAuthenticatedMiddleware";
 
 const router = Router();
 
-router.use(ensureAuthenticatedMiddleware);
-router.get("/tests");
-router.post("/tests");
-router.post("/tests/:id/view");
+router.use(ensureAuthenticated);
+router.get("/tests", testController.find);
+router.post("/tests", testController.insert);
+router.post("/tests/:id/view", testController.view);
 
 export default router;

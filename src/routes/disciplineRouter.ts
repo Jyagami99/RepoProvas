@@ -1,8 +1,13 @@
 import { Router } from "express";
-import ensureAuthenticatedMiddleware from "../middlewares/ensureAuthenticatedMiddleware";
+import disciplineController from "../controllers/disciplineController";
+import ensureAuthenticated from "../middlewares/ensureAuthenticatedMiddleware";
 
 const router = Router();
 
-router.get("/disciplines/:term", ensureAuthenticatedMiddleware);
+router.get(
+  "/disciplines/:term",
+  ensureAuthenticated,
+  disciplineController.get
+);
 
 export default router;
