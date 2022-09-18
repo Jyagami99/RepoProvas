@@ -1,8 +1,10 @@
 import { Router } from "express";
+import validateSchema from "../middlewares/validateSchemaMiddleware";
+import { userSchema } from "../schemas/userSchema";
 
-const userRouter = Router();
+const router = Router();
 
-userRouter.post("/sign-up");
-userRouter.post("/sign-in");
+router.post("/sign-up", validateSchema(userSchema));
+router.post("/sign-in", validateSchema(userSchema));
 
-export default userRouter;
+export default router;

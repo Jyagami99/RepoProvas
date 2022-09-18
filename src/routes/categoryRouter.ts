@@ -1,7 +1,8 @@
 import { Router } from "express";
+import ensureAuthenticatedMiddleware from "../middlewares/ensureAuthenticatedMiddleware";
 
-const categoryRouter = Router();
+const router = Router();
 
-categoryRouter.get("/categories");
+router.get("/categories", ensureAuthenticatedMiddleware);
 
-export default categoryRouter;
+export default router;

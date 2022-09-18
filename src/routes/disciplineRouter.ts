@@ -1,7 +1,8 @@
 import { Router } from "express";
+import ensureAuthenticatedMiddleware from "../middlewares/ensureAuthenticatedMiddleware";
 
-const disciplineRouter = Router();
+const router = Router();
 
-disciplineRouter.get("/disciplines/:term");
+router.get("/disciplines/:term", ensureAuthenticatedMiddleware);
 
-export default disciplineRouter;
+export default router;

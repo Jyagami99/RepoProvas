@@ -1,9 +1,11 @@
 import { Router } from "express";
+import ensureAuthenticatedMiddleware from "../middlewares/ensureAuthenticatedMiddleware";
 
-const testRouter = Router();
+const router = Router();
 
-testRouter.get("/tests");
-testRouter.post("/tests");
-testRouter.post("/tests/:id/view");
+router.use(ensureAuthenticatedMiddleware);
+router.get("/tests");
+router.post("/tests");
+router.post("/tests/:id/view");
 
-export default testRouter;
+export default router;
