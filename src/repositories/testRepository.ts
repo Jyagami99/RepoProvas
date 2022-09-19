@@ -57,10 +57,12 @@ async function view(id: number) {
   });
 }
 
-export default {
+const testRepository = {
   getTestsByDiscipline,
   getTestsByTeachers,
   insert,
   getById,
   view,
 };
+
+export default testRepository;

@@ -17,8 +17,10 @@ async function insert(createUserData: CreateUserData) {
   return prisma.user.create({ data: createUserData });
 }
 
-export default {
+const userRepository = {
   findById,
   findByEmail,
   insert,
 };
+
+export default userRepository;
