@@ -17,11 +17,11 @@ export const app = express();
 app.use(cors());
 app.use(json());
 
+app.use(userRouter);
 app.use(categoryRouter);
 app.use(disciplineRouter);
 app.use(teacherRouter);
 app.use(testRouter);
-app.use(userRouter);
 app.use(errorHandlerMiddleware);
 
 export default app;

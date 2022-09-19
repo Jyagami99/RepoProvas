@@ -13,7 +13,7 @@ export default async function ensureAuthenticatedMiddleware(
 
   const authorization = req.headers["authorization"];
   if (!authorization)
-    throw unauthorizedError("Verifique o header authorization@");
+    throw unauthorizedError("Verifique o header authorization!");
 
   const token = authorization.replace("Bearer ", "");
   if (!token) throw unauthorizedError("Verifique o token!");
