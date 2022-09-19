@@ -18,10 +18,10 @@ app.use(cors());
 app.use(json());
 
 app.use(userRouter);
+app.use(testRouter);
 app.use(categoryRouter);
 app.use(disciplineRouter);
 app.use(teacherRouter);
-app.use(testRouter);
 app.use(errorHandlerMiddleware);
 
 export default app;
