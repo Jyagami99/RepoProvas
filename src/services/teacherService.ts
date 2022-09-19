@@ -1,6 +1,12 @@
-async function getById(id: number) {}
+import teacherRepository from "../repositories/teacherRepository";
 
-async function getByDiscipline(discipline: number) {}
+async function getById(id: number) {
+  return teacherRepository.getById(id);
+}
+
+async function getByDiscipline(discipline: number) {
+  return teacherRepository.getByDiscipline(discipline);
+}
 
 const teacherService = { getById, getByDiscipline };
 
