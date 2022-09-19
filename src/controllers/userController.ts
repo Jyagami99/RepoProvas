@@ -1,8 +1,19 @@
 import { Request, Response } from "express";
+import userService from "../services/userService";
 
-async function signUp(req: Request, res: Response) {}
+async function signUp(req: Request, res: Response) {
+  const user = req.body;
+  await userService.signUp(user);
 
-async function signIn(req: Request, res: Response) {}
+  res.sendStatus(201);
+}
+
+async function signIn(req: Request, res: Response) {
+  const user = req.body;
+  const token = await userService.signIn(user);
+
+  res.send({ token });
+}
 
 const userController = {
   signUp,
