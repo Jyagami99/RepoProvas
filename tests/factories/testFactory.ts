@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-
 import prisma from "./../../src/database/prisma";
 
 export default async function createTest(

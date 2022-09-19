@@ -78,7 +78,7 @@ describe("Testes de provas", () => {
     expect(tests[1].categories[0].tests.length).toBe(2);
   });
 
-  it("Deve retornar uma prova", async () => {
+  it("Deve criar uma prova", async () => {
     const { category, discipline, teacher } =
       await createScenarioOneTeacherWithOneTest();
 

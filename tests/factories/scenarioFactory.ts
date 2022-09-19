@@ -1,4 +1,3 @@
-import prisma from "./../../src/database/prisma";
 import createCategory from "./categoryFactory";
 import createDiscipline from "./disciplineFactory";
 import createTeacherDiscipline from "./teacherDisciplineFactory";
@@ -58,16 +57,4 @@ export async function createScenarioTwoTeachersWithTwoTestsEach() {
     teacherDisciplines: [teacherDiscipline1, teacherDiscipline2],
     tests: [test1, test2, test3, test4],
   };
-}
-
-export async function deleteAllData() {
-  await prisma.$transaction([
-    prisma.$executeRaw`TRUNCATE TABLE users`,
-    prisma.$executeRaw`TRUNCATE TABLE categories CASCADE`,
-    prisma.$executeRaw`TRUNCATE TABLE tests CASCADE`,
-    prisma.$executeRaw`TRUNCATE TABLE disciplines CASCADE`,
-    prisma.$executeRaw`TRUNCATE TABLE "TeacherDiscipline" CASCADE`,
-    prisma.$executeRaw`TRUNCATE TABLE terms CASCADE`,
-    prisma.$executeRaw`TRUNCATE TABLE teachers CASCADE`,
-  ]);
 }
